@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="01df02c60f69466faaab83b064060558" Name="Diagram1">
+        <EntityTypeShape EntityType="RedSeaModel.tblDesignation" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="RedSeaModel.tblFTE" Width="1.5" PointX="5.25" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="RedSeaModel.tblLanguage" Width="1.5" PointX="5.25" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="RedSeaModel.tblLinkLanguage" Width="1.5" PointX="7.5" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="RedSeaModel.tblLinkSkill" Width="1.5" PointX="7.5" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="RedSeaModel.tblLinkSystem" Width="1.5" PointX="7.5" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="RedSeaModel.tblLog" Width="1.5" PointX="7.5" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="RedSeaModel.tblPC" Width="1.5" PointX="3" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="RedSeaModel.tblReview" Width="1.5" PointX="7.5" PointY="16.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="RedSeaModel.tblSkill" Width="1.5" PointX="5.25" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="RedSeaModel.tblSystem" Width="1.5" PointX="5.25" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="RedSeaModel.tblTeam" Width="1.5" PointX="3" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="RedSeaModel.tblTeamGroup" Width="1.5" PointX="0.75" PointY="7.25" IsExpanded="true" />
+        <AssociationConnector Association="RedSeaModel.FK__tblFTE__Designat__25869641" ManuallyRouted="false" />
+        <AssociationConnector Association="RedSeaModel.FK__tblFTE__DirectRe__286302EC" ManuallyRouted="false" />
+        <AssociationConnector Association="RedSeaModel.FK__tblFTE__PC__276EDEB3" ManuallyRouted="false" />
+        <AssociationConnector Association="RedSeaModel.FK__tblFTE__Team__24927208" ManuallyRouted="false" />
+        <AssociationConnector Association="RedSeaModel.FK__tblLinkLang__FTE__3B75D760" ManuallyRouted="false" />
+        <AssociationConnector Association="RedSeaModel.FK__tblLinkSkil__FTE__3F466844" ManuallyRouted="false" />
+        <AssociationConnector Association="RedSeaModel.FK__tblLinkSyst__FTE__37A5467C" ManuallyRouted="false" />
+        <AssociationConnector Association="RedSeaModel.FK__tblLogs__cUser__34C8D9D1" ManuallyRouted="false" />
+        <AssociationConnector Association="RedSeaModel.FK__tblReview__cUser__30F848ED" ManuallyRouted="false" />
+        <AssociationConnector Association="RedSeaModel.FK__tblReview__FTE__300424B4" ManuallyRouted="false" />
+        <AssociationConnector Association="RedSeaModel.FK__tblLinkLa__cLang__3C69FB99" ManuallyRouted="false" />
+        <AssociationConnector Association="RedSeaModel.FK__tblLinkSk__Skill__403A8C7D" ManuallyRouted="false" />
+        <AssociationConnector Association="RedSeaModel.FK__tblLinkSy__cSyst__38996AB5" ManuallyRouted="false" />
+        <AssociationConnector Association="RedSeaModel.FK__tblTeam__TeamGro__1273C1CD" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="RedSeaModel.vAllEmpoyee" Width="1.5" PointX="10.375" PointY="0.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

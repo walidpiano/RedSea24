@@ -1,0 +1,1029 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="RedSeaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tblDesignation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Designation" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblFTE">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Team" Type="int" Nullable="false" />
+          <Property Name="Designation" Type="int" Nullable="false" />
+          <Property Name="Username" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Cisco" Type="nvarchar" MaxLength="10" />
+          <Property Name="PC" Type="int" Nullable="false" />
+          <Property Name="Code" Type="nvarchar" MaxLength="15" />
+          <Property Name="FingerPrint" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="DirectReport" Type="bigint" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="Photo" Type="varbinary(max)" />
+          <Property Name="Email" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="PassKey" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Authority" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+          <Property Name="Notes" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="HireDate" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblLanguage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LanguageName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblLinkLanguage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FTE" Type="bigint" Nullable="false" />
+          <Property Name="cLanguage" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblLinkSkill">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FTE" Type="bigint" Nullable="false" />
+          <Property Name="Skill" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblLinkSystem">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FTE" Type="bigint" Nullable="false" />
+          <Property Name="cSystem" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblLogs">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cDate" Type="datetime" Nullable="false" />
+          <Property Name="cUser" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblPC">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PCName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Screen1" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Screen2" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Notes" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="tblReview">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cDate" Type="datetime" Nullable="false" />
+          <Property Name="FTE" Type="bigint" Nullable="false" />
+          <Property Name="cType" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Details" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="cUser" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblSkill">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SkillName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblSystem">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SystemName" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblTeam">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TeamGroup" Type="int" Nullable="false" />
+          <Property Name="Team" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Logo" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="tblTeamGroup">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TeamGroup" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Logo" Type="varbinary(max)" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'RedSea.dbo.vAllEmpoyees' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vAllEmpoyees">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="TeamGroup" />
+            <PropertyRef Name="Team" />
+            <PropertyRef Name="Designation" />
+            <PropertyRef Name="Username" />
+            <PropertyRef Name="FirstName" />
+            <PropertyRef Name="LastName" />
+            <PropertyRef Name="FingerPrint" />
+            <PropertyRef Name="Phone" />
+            <PropertyRef Name="Email" />
+            <PropertyRef Name="Active" />
+          </Key>
+          <Property Name="Id" Type="bigint" Nullable="false" />
+          <Property Name="TeamGroup" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Team" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Designation" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Username" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Cisco" Type="nvarchar" MaxLength="10" />
+          <Property Name="Code" Type="nvarchar" MaxLength="15" />
+          <Property Name="FingerPrint" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="DirectReport" Type="nvarchar" MaxLength="101" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="Photo" Type="varbinary(max)" />
+          <Property Name="Email" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__tblFTE__Designat__25869641">
+          <End Role="tblDesignation" Type="Self.tblDesignation" Multiplicity="1" />
+          <End Role="tblFTE" Type="Self.tblFTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblDesignation">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblFTE">
+              <PropertyRef Name="Designation" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblFTE__DirectRe__286302EC">
+          <End Role="tblFTE" Type="Self.tblFTE" Multiplicity="0..1" />
+          <End Role="tblFTE1" Type="Self.tblFTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblFTE">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblFTE1">
+              <PropertyRef Name="DirectReport" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblFTE__PC__276EDEB3">
+          <End Role="tblPC" Type="Self.tblPC" Multiplicity="1" />
+          <End Role="tblFTE" Type="Self.tblFTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblPC">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblFTE">
+              <PropertyRef Name="PC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblFTE__Team__24927208">
+          <End Role="tblTeam" Type="Self.tblTeam" Multiplicity="1" />
+          <End Role="tblFTE" Type="Self.tblFTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblTeam">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblFTE">
+              <PropertyRef Name="Team" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblLinkLa__cLang__3C69FB99">
+          <End Role="tblLanguage" Type="Self.tblLanguage" Multiplicity="1" />
+          <End Role="tblLinkLanguage" Type="Self.tblLinkLanguage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblLanguage">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblLinkLanguage">
+              <PropertyRef Name="cLanguage" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblLinkLang__FTE__3B75D760">
+          <End Role="tblFTE" Type="Self.tblFTE" Multiplicity="1" />
+          <End Role="tblLinkLanguage" Type="Self.tblLinkLanguage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblFTE">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblLinkLanguage">
+              <PropertyRef Name="FTE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblLinkSk__Skill__403A8C7D">
+          <End Role="tblSkill" Type="Self.tblSkill" Multiplicity="1" />
+          <End Role="tblLinkSkill" Type="Self.tblLinkSkill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblSkill">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblLinkSkill">
+              <PropertyRef Name="Skill" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblLinkSkil__FTE__3F466844">
+          <End Role="tblFTE" Type="Self.tblFTE" Multiplicity="1" />
+          <End Role="tblLinkSkill" Type="Self.tblLinkSkill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblFTE">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblLinkSkill">
+              <PropertyRef Name="FTE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblLinkSy__cSyst__38996AB5">
+          <End Role="tblSystem" Type="Self.tblSystem" Multiplicity="1" />
+          <End Role="tblLinkSystem" Type="Self.tblLinkSystem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblSystem">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblLinkSystem">
+              <PropertyRef Name="cSystem" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblLinkSyst__FTE__37A5467C">
+          <End Role="tblFTE" Type="Self.tblFTE" Multiplicity="1" />
+          <End Role="tblLinkSystem" Type="Self.tblLinkSystem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblFTE">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblLinkSystem">
+              <PropertyRef Name="FTE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblLogs__cUser__34C8D9D1">
+          <End Role="tblFTE" Type="Self.tblFTE" Multiplicity="1" />
+          <End Role="tblLogs" Type="Self.tblLogs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblFTE">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblLogs">
+              <PropertyRef Name="cUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblReview__cUser__30F848ED">
+          <End Role="tblFTE" Type="Self.tblFTE" Multiplicity="1" />
+          <End Role="tblReview" Type="Self.tblReview" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblFTE">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblReview">
+              <PropertyRef Name="cUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblReview__FTE__300424B4">
+          <End Role="tblFTE" Type="Self.tblFTE" Multiplicity="1" />
+          <End Role="tblReview" Type="Self.tblReview" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblFTE">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblReview">
+              <PropertyRef Name="FTE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblTeam__TeamGro__1273C1CD">
+          <End Role="tblTeamGroup" Type="Self.tblTeamGroup" Multiplicity="1" />
+          <End Role="tblTeam" Type="Self.tblTeam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblTeamGroup">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblTeam">
+              <PropertyRef Name="TeamGroup" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="RedSeaModelStoreContainer">
+          <EntitySet Name="tblDesignation" EntityType="Self.tblDesignation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblFTE" EntityType="Self.tblFTE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblLanguage" EntityType="Self.tblLanguage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblLinkLanguage" EntityType="Self.tblLinkLanguage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblLinkSkill" EntityType="Self.tblLinkSkill" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblLinkSystem" EntityType="Self.tblLinkSystem" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblLogs" EntityType="Self.tblLogs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblPC" EntityType="Self.tblPC" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblReview" EntityType="Self.tblReview" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblSkill" EntityType="Self.tblSkill" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblSystem" EntityType="Self.tblSystem" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblTeam" EntityType="Self.tblTeam" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblTeamGroup" EntityType="Self.tblTeamGroup" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="vAllEmpoyees" EntityType="Self.vAllEmpoyees" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vAllEmpoyees].[Id] AS [Id], 
+    [vAllEmpoyees].[TeamGroup] AS [TeamGroup], 
+    [vAllEmpoyees].[Team] AS [Team], 
+    [vAllEmpoyees].[Designation] AS [Designation], 
+    [vAllEmpoyees].[Username] AS [Username], 
+    [vAllEmpoyees].[FirstName] AS [FirstName], 
+    [vAllEmpoyees].[LastName] AS [LastName], 
+    [vAllEmpoyees].[Cisco] AS [Cisco], 
+    [vAllEmpoyees].[Code] AS [Code], 
+    [vAllEmpoyees].[FingerPrint] AS [FingerPrint], 
+    [vAllEmpoyees].[DirectReport] AS [DirectReport], 
+    [vAllEmpoyees].[Phone] AS [Phone], 
+    [vAllEmpoyees].[Photo] AS [Photo], 
+    [vAllEmpoyees].[Email] AS [Email], 
+    [vAllEmpoyees].[Active] AS [Active]
+    FROM [dbo].[vAllEmpoyees] AS [vAllEmpoyees]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__tblFTE__Designat__25869641" Association="Self.FK__tblFTE__Designat__25869641">
+            <End Role="tblDesignation" EntitySet="tblDesignation" />
+            <End Role="tblFTE" EntitySet="tblFTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblFTE__DirectRe__286302EC" Association="Self.FK__tblFTE__DirectRe__286302EC">
+            <End Role="tblFTE" EntitySet="tblFTE" />
+            <End Role="tblFTE1" EntitySet="tblFTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblFTE__PC__276EDEB3" Association="Self.FK__tblFTE__PC__276EDEB3">
+            <End Role="tblPC" EntitySet="tblPC" />
+            <End Role="tblFTE" EntitySet="tblFTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblFTE__Team__24927208" Association="Self.FK__tblFTE__Team__24927208">
+            <End Role="tblTeam" EntitySet="tblTeam" />
+            <End Role="tblFTE" EntitySet="tblFTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblLinkLa__cLang__3C69FB99" Association="Self.FK__tblLinkLa__cLang__3C69FB99">
+            <End Role="tblLanguage" EntitySet="tblLanguage" />
+            <End Role="tblLinkLanguage" EntitySet="tblLinkLanguage" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblLinkLang__FTE__3B75D760" Association="Self.FK__tblLinkLang__FTE__3B75D760">
+            <End Role="tblFTE" EntitySet="tblFTE" />
+            <End Role="tblLinkLanguage" EntitySet="tblLinkLanguage" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblLinkSk__Skill__403A8C7D" Association="Self.FK__tblLinkSk__Skill__403A8C7D">
+            <End Role="tblSkill" EntitySet="tblSkill" />
+            <End Role="tblLinkSkill" EntitySet="tblLinkSkill" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblLinkSkil__FTE__3F466844" Association="Self.FK__tblLinkSkil__FTE__3F466844">
+            <End Role="tblFTE" EntitySet="tblFTE" />
+            <End Role="tblLinkSkill" EntitySet="tblLinkSkill" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblLinkSy__cSyst__38996AB5" Association="Self.FK__tblLinkSy__cSyst__38996AB5">
+            <End Role="tblSystem" EntitySet="tblSystem" />
+            <End Role="tblLinkSystem" EntitySet="tblLinkSystem" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblLinkSyst__FTE__37A5467C" Association="Self.FK__tblLinkSyst__FTE__37A5467C">
+            <End Role="tblFTE" EntitySet="tblFTE" />
+            <End Role="tblLinkSystem" EntitySet="tblLinkSystem" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblLogs__cUser__34C8D9D1" Association="Self.FK__tblLogs__cUser__34C8D9D1">
+            <End Role="tblFTE" EntitySet="tblFTE" />
+            <End Role="tblLogs" EntitySet="tblLogs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblReview__cUser__30F848ED" Association="Self.FK__tblReview__cUser__30F848ED">
+            <End Role="tblFTE" EntitySet="tblFTE" />
+            <End Role="tblReview" EntitySet="tblReview" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblReview__FTE__300424B4" Association="Self.FK__tblReview__FTE__300424B4">
+            <End Role="tblFTE" EntitySet="tblFTE" />
+            <End Role="tblReview" EntitySet="tblReview" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblTeam__TeamGro__1273C1CD" Association="Self.FK__tblTeam__TeamGro__1273C1CD">
+            <End Role="tblTeamGroup" EntitySet="tblTeamGroup" />
+            <End Role="tblTeam" EntitySet="tblTeam" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="RedSeaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tblDesignation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Designation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="tblFTEs" Relationship="Self.FK__tblFTE__Designat__25869641" FromRole="tblDesignation" ToRole="tblFTE" />
+        </EntityType>
+        <EntityType Name="tblFTE">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Team" Type="Int32" Nullable="false" />
+          <Property Name="Designation" Type="Int32" Nullable="false" />
+          <Property Name="Username" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Cisco" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="PC" Type="Int32" Nullable="false" />
+          <Property Name="Code" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="FingerPrint" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DirectReport" Type="Int64" />
+          <Property Name="Phone" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PassKey" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Authority" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="tblDesignation" Relationship="Self.FK__tblFTE__Designat__25869641" FromRole="tblFTE" ToRole="tblDesignation" />
+          <NavigationProperty Name="tblFTE1" Relationship="Self.FK__tblFTE__DirectRe__286302EC" FromRole="tblFTE" ToRole="tblFTE1" />
+          <NavigationProperty Name="tblFTE2" Relationship="Self.FK__tblFTE__DirectRe__286302EC" FromRole="tblFTE1" ToRole="tblFTE" />
+          <NavigationProperty Name="tblPC" Relationship="Self.FK__tblFTE__PC__276EDEB3" FromRole="tblFTE" ToRole="tblPC" />
+          <NavigationProperty Name="tblTeam" Relationship="Self.FK__tblFTE__Team__24927208" FromRole="tblFTE" ToRole="tblTeam" />
+          <NavigationProperty Name="tblLinkLanguages" Relationship="Self.FK__tblLinkLang__FTE__3B75D760" FromRole="tblFTE" ToRole="tblLinkLanguage" />
+          <NavigationProperty Name="tblLinkSkills" Relationship="Self.FK__tblLinkSkil__FTE__3F466844" FromRole="tblFTE" ToRole="tblLinkSkill" />
+          <NavigationProperty Name="tblLinkSystems" Relationship="Self.FK__tblLinkSyst__FTE__37A5467C" FromRole="tblFTE" ToRole="tblLinkSystem" />
+          <NavigationProperty Name="tblLogs" Relationship="Self.FK__tblLogs__cUser__34C8D9D1" FromRole="tblFTE" ToRole="tblLogs" />
+          <NavigationProperty Name="tblReviews" Relationship="Self.FK__tblReview__cUser__30F848ED" FromRole="tblFTE" ToRole="tblReview" />
+          <NavigationProperty Name="tblReviews1" Relationship="Self.FK__tblReview__FTE__300424B4" FromRole="tblFTE" ToRole="tblReview" />
+          <Property Name="HireDate" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
+        <EntityType Name="tblLanguage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LanguageName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tblLinkLanguages" Relationship="Self.FK__tblLinkLa__cLang__3C69FB99" FromRole="tblLanguage" ToRole="tblLinkLanguage" />
+        </EntityType>
+        <EntityType Name="tblLinkLanguage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FTE" Type="Int64" Nullable="false" />
+          <Property Name="cLanguage" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tblFTE" Relationship="Self.FK__tblLinkLang__FTE__3B75D760" FromRole="tblLinkLanguage" ToRole="tblFTE" />
+          <NavigationProperty Name="tblLanguage" Relationship="Self.FK__tblLinkLa__cLang__3C69FB99" FromRole="tblLinkLanguage" ToRole="tblLanguage" />
+        </EntityType>
+        <EntityType Name="tblLinkSkill">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FTE" Type="Int64" Nullable="false" />
+          <Property Name="Skill" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tblFTE" Relationship="Self.FK__tblLinkSkil__FTE__3F466844" FromRole="tblLinkSkill" ToRole="tblFTE" />
+          <NavigationProperty Name="tblSkill" Relationship="Self.FK__tblLinkSk__Skill__403A8C7D" FromRole="tblLinkSkill" ToRole="tblSkill" />
+        </EntityType>
+        <EntityType Name="tblLinkSystem">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FTE" Type="Int64" Nullable="false" />
+          <Property Name="cSystem" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tblFTE" Relationship="Self.FK__tblLinkSyst__FTE__37A5467C" FromRole="tblLinkSystem" ToRole="tblFTE" />
+          <NavigationProperty Name="tblSystem" Relationship="Self.FK__tblLinkSy__cSyst__38996AB5" FromRole="tblLinkSystem" ToRole="tblSystem" />
+        </EntityType>
+        <EntityType Name="tblLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="cUser" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="tblFTE" Relationship="Self.FK__tblLogs__cUser__34C8D9D1" FromRole="tblLogs" ToRole="tblFTE" />
+        </EntityType>
+        <EntityType Name="tblPC">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PCName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Screen1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Screen2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Notes" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tblFTEs" Relationship="Self.FK__tblFTE__PC__276EDEB3" FromRole="tblPC" ToRole="tblFTE" />
+        </EntityType>
+        <EntityType Name="tblReview">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FTE" Type="Int64" Nullable="false" />
+          <Property Name="cType" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Details" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="cUser" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="tblFTE" Relationship="Self.FK__tblReview__cUser__30F848ED" FromRole="tblReview" ToRole="tblFTE" />
+          <NavigationProperty Name="tblFTE1" Relationship="Self.FK__tblReview__FTE__300424B4" FromRole="tblReview" ToRole="tblFTE" />
+        </EntityType>
+        <EntityType Name="tblSkill">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SkillName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tblLinkSkills" Relationship="Self.FK__tblLinkSk__Skill__403A8C7D" FromRole="tblSkill" ToRole="tblLinkSkill" />
+        </EntityType>
+        <EntityType Name="tblSystem">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SystemName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="tblLinkSystems" Relationship="Self.FK__tblLinkSy__cSyst__38996AB5" FromRole="tblSystem" ToRole="tblLinkSystem" />
+        </EntityType>
+        <EntityType Name="tblTeam">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TeamGroup" Type="Int32" Nullable="false" />
+          <Property Name="Team" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Logo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="tblFTEs" Relationship="Self.FK__tblFTE__Team__24927208" FromRole="tblTeam" ToRole="tblFTE" />
+          <NavigationProperty Name="tblTeamGroup" Relationship="Self.FK__tblTeam__TeamGro__1273C1CD" FromRole="tblTeam" ToRole="tblTeamGroup" />
+        </EntityType>
+        <EntityType Name="tblTeamGroup">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TeamGroup" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Logo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="tblTeams" Relationship="Self.FK__tblTeam__TeamGro__1273C1CD" FromRole="tblTeamGroup" ToRole="tblTeam" />
+        </EntityType>
+        <Association Name="FK__tblFTE__Designat__25869641">
+          <End Role="tblDesignation" Type="Self.tblDesignation" Multiplicity="1" />
+          <End Role="tblFTE" Type="Self.tblFTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblDesignation">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblFTE">
+              <PropertyRef Name="Designation" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblFTE__DirectRe__286302EC">
+          <End Role="tblFTE" Type="Self.tblFTE" Multiplicity="0..1" />
+          <End Role="tblFTE1" Type="Self.tblFTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblFTE">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblFTE1">
+              <PropertyRef Name="DirectReport" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblFTE__PC__276EDEB3">
+          <End Role="tblPC" Type="Self.tblPC" Multiplicity="1" />
+          <End Role="tblFTE" Type="Self.tblFTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblPC">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblFTE">
+              <PropertyRef Name="PC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblFTE__Team__24927208">
+          <End Role="tblTeam" Type="Self.tblTeam" Multiplicity="1" />
+          <End Role="tblFTE" Type="Self.tblFTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblTeam">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblFTE">
+              <PropertyRef Name="Team" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblLinkLang__FTE__3B75D760">
+          <End Role="tblFTE" Type="Self.tblFTE" Multiplicity="1" />
+          <End Role="tblLinkLanguage" Type="Self.tblLinkLanguage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblFTE">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblLinkLanguage">
+              <PropertyRef Name="FTE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblLinkSkil__FTE__3F466844">
+          <End Role="tblFTE" Type="Self.tblFTE" Multiplicity="1" />
+          <End Role="tblLinkSkill" Type="Self.tblLinkSkill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblFTE">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblLinkSkill">
+              <PropertyRef Name="FTE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblLinkSyst__FTE__37A5467C">
+          <End Role="tblFTE" Type="Self.tblFTE" Multiplicity="1" />
+          <End Role="tblLinkSystem" Type="Self.tblLinkSystem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblFTE">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblLinkSystem">
+              <PropertyRef Name="FTE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblLogs__cUser__34C8D9D1">
+          <End Role="tblFTE" Type="Self.tblFTE" Multiplicity="1" />
+          <End Role="tblLogs" Type="Self.tblLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblFTE">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblLogs">
+              <PropertyRef Name="cUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblReview__cUser__30F848ED">
+          <End Role="tblFTE" Type="Self.tblFTE" Multiplicity="1" />
+          <End Role="tblReview" Type="Self.tblReview" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblFTE">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblReview">
+              <PropertyRef Name="cUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblReview__FTE__300424B4">
+          <End Role="tblFTE" Type="Self.tblFTE" Multiplicity="1" />
+          <End Role="tblReview" Type="Self.tblReview" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblFTE">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblReview">
+              <PropertyRef Name="FTE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblLinkLa__cLang__3C69FB99">
+          <End Role="tblLanguage" Type="Self.tblLanguage" Multiplicity="1" />
+          <End Role="tblLinkLanguage" Type="Self.tblLinkLanguage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblLanguage">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblLinkLanguage">
+              <PropertyRef Name="cLanguage" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblLinkSk__Skill__403A8C7D">
+          <End Role="tblSkill" Type="Self.tblSkill" Multiplicity="1" />
+          <End Role="tblLinkSkill" Type="Self.tblLinkSkill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblSkill">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblLinkSkill">
+              <PropertyRef Name="Skill" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblLinkSy__cSyst__38996AB5">
+          <End Role="tblSystem" Type="Self.tblSystem" Multiplicity="1" />
+          <End Role="tblLinkSystem" Type="Self.tblLinkSystem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblSystem">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblLinkSystem">
+              <PropertyRef Name="cSystem" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblTeam__TeamGro__1273C1CD">
+          <End Role="tblTeamGroup" Type="Self.tblTeamGroup" Multiplicity="1" />
+          <End Role="tblTeam" Type="Self.tblTeam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblTeamGroup">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblTeam">
+              <PropertyRef Name="TeamGroup" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="RedSeaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tblDesignations" EntityType="Self.tblDesignation" />
+          <EntitySet Name="tblFTEs" EntityType="Self.tblFTE" />
+          <EntitySet Name="tblLanguages" EntityType="Self.tblLanguage" />
+          <EntitySet Name="tblLinkLanguages" EntityType="Self.tblLinkLanguage" />
+          <EntitySet Name="tblLinkSkills" EntityType="Self.tblLinkSkill" />
+          <EntitySet Name="tblLinkSystems" EntityType="Self.tblLinkSystem" />
+          <EntitySet Name="tblLogs" EntityType="Self.tblLog" />
+          <EntitySet Name="tblPCs" EntityType="Self.tblPC" />
+          <EntitySet Name="tblReviews" EntityType="Self.tblReview" />
+          <EntitySet Name="tblSkills" EntityType="Self.tblSkill" />
+          <EntitySet Name="tblSystems" EntityType="Self.tblSystem" />
+          <EntitySet Name="tblTeams" EntityType="Self.tblTeam" />
+          <EntitySet Name="tblTeamGroups" EntityType="Self.tblTeamGroup" />
+          <AssociationSet Name="FK__tblFTE__Designat__25869641" Association="Self.FK__tblFTE__Designat__25869641">
+            <End Role="tblDesignation" EntitySet="tblDesignations" />
+            <End Role="tblFTE" EntitySet="tblFTEs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblFTE__DirectRe__286302EC" Association="Self.FK__tblFTE__DirectRe__286302EC">
+            <End Role="tblFTE" EntitySet="tblFTEs" />
+            <End Role="tblFTE1" EntitySet="tblFTEs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblFTE__PC__276EDEB3" Association="Self.FK__tblFTE__PC__276EDEB3">
+            <End Role="tblPC" EntitySet="tblPCs" />
+            <End Role="tblFTE" EntitySet="tblFTEs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblFTE__Team__24927208" Association="Self.FK__tblFTE__Team__24927208">
+            <End Role="tblTeam" EntitySet="tblTeams" />
+            <End Role="tblFTE" EntitySet="tblFTEs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblLinkLang__FTE__3B75D760" Association="Self.FK__tblLinkLang__FTE__3B75D760">
+            <End Role="tblFTE" EntitySet="tblFTEs" />
+            <End Role="tblLinkLanguage" EntitySet="tblLinkLanguages" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblLinkSkil__FTE__3F466844" Association="Self.FK__tblLinkSkil__FTE__3F466844">
+            <End Role="tblFTE" EntitySet="tblFTEs" />
+            <End Role="tblLinkSkill" EntitySet="tblLinkSkills" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblLinkSyst__FTE__37A5467C" Association="Self.FK__tblLinkSyst__FTE__37A5467C">
+            <End Role="tblFTE" EntitySet="tblFTEs" />
+            <End Role="tblLinkSystem" EntitySet="tblLinkSystems" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblLogs__cUser__34C8D9D1" Association="Self.FK__tblLogs__cUser__34C8D9D1">
+            <End Role="tblFTE" EntitySet="tblFTEs" />
+            <End Role="tblLogs" EntitySet="tblLogs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblReview__cUser__30F848ED" Association="Self.FK__tblReview__cUser__30F848ED">
+            <End Role="tblFTE" EntitySet="tblFTEs" />
+            <End Role="tblReview" EntitySet="tblReviews" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblReview__FTE__300424B4" Association="Self.FK__tblReview__FTE__300424B4">
+            <End Role="tblFTE" EntitySet="tblFTEs" />
+            <End Role="tblReview" EntitySet="tblReviews" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblLinkLa__cLang__3C69FB99" Association="Self.FK__tblLinkLa__cLang__3C69FB99">
+            <End Role="tblLanguage" EntitySet="tblLanguages" />
+            <End Role="tblLinkLanguage" EntitySet="tblLinkLanguages" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblLinkSk__Skill__403A8C7D" Association="Self.FK__tblLinkSk__Skill__403A8C7D">
+            <End Role="tblSkill" EntitySet="tblSkills" />
+            <End Role="tblLinkSkill" EntitySet="tblLinkSkills" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblLinkSy__cSyst__38996AB5" Association="Self.FK__tblLinkSy__cSyst__38996AB5">
+            <End Role="tblSystem" EntitySet="tblSystems" />
+            <End Role="tblLinkSystem" EntitySet="tblLinkSystems" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblTeam__TeamGro__1273C1CD" Association="Self.FK__tblTeam__TeamGro__1273C1CD">
+            <End Role="tblTeamGroup" EntitySet="tblTeamGroups" />
+            <End Role="tblTeam" EntitySet="tblTeams" />
+          </AssociationSet>
+          <EntitySet Name="vAllEmpoyees" EntityType="RedSeaModel.vAllEmpoyee" />
+        </EntityContainer>
+        <EntityType Name="vAllEmpoyee">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="TeamGroup" />
+            <PropertyRef Name="Team" />
+            <PropertyRef Name="Designation" />
+            <PropertyRef Name="Username" />
+            <PropertyRef Name="FirstName" />
+            <PropertyRef Name="LastName" />
+            <PropertyRef Name="FingerPrint" />
+            <PropertyRef Name="Phone" />
+            <PropertyRef Name="Email" />
+            <PropertyRef Name="Active" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" />
+          <Property Name="TeamGroup" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Team" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Designation" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Username" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Cisco" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Code" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="FingerPrint" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="DirectReport" Type="String" MaxLength="101" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="RedSeaModelStoreContainer" CdmEntityContainer="RedSeaEntities">
+          <EntitySetMapping Name="tblDesignations">
+            <EntityTypeMapping TypeName="RedSeaModel.tblDesignation">
+              <MappingFragment StoreEntitySet="tblDesignation">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Designation" ColumnName="Designation" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblFTEs">
+            <EntityTypeMapping TypeName="RedSeaModel.tblFTE">
+              <MappingFragment StoreEntitySet="tblFTE">
+                <ScalarProperty Name="HireDate" ColumnName="HireDate" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Team" ColumnName="Team" />
+                <ScalarProperty Name="Designation" ColumnName="Designation" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Cisco" ColumnName="Cisco" />
+                <ScalarProperty Name="PC" ColumnName="PC" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="FingerPrint" ColumnName="FingerPrint" />
+                <ScalarProperty Name="DirectReport" ColumnName="DirectReport" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="PassKey" ColumnName="PassKey" />
+                <ScalarProperty Name="Authority" ColumnName="Authority" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblLanguages">
+            <EntityTypeMapping TypeName="RedSeaModel.tblLanguage">
+              <MappingFragment StoreEntitySet="tblLanguage">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="LanguageName" ColumnName="LanguageName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblLinkLanguages">
+            <EntityTypeMapping TypeName="RedSeaModel.tblLinkLanguage">
+              <MappingFragment StoreEntitySet="tblLinkLanguage">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FTE" ColumnName="FTE" />
+                <ScalarProperty Name="cLanguage" ColumnName="cLanguage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblLinkSkills">
+            <EntityTypeMapping TypeName="RedSeaModel.tblLinkSkill">
+              <MappingFragment StoreEntitySet="tblLinkSkill">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FTE" ColumnName="FTE" />
+                <ScalarProperty Name="Skill" ColumnName="Skill" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblLinkSystems">
+            <EntityTypeMapping TypeName="RedSeaModel.tblLinkSystem">
+              <MappingFragment StoreEntitySet="tblLinkSystem">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FTE" ColumnName="FTE" />
+                <ScalarProperty Name="cSystem" ColumnName="cSystem" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblLogs">
+            <EntityTypeMapping TypeName="RedSeaModel.tblLog">
+              <MappingFragment StoreEntitySet="tblLogs">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="cDate" ColumnName="cDate" />
+                <ScalarProperty Name="cUser" ColumnName="cUser" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblPCs">
+            <EntityTypeMapping TypeName="RedSeaModel.tblPC">
+              <MappingFragment StoreEntitySet="tblPC">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="PCName" ColumnName="PCName" />
+                <ScalarProperty Name="Screen1" ColumnName="Screen1" />
+                <ScalarProperty Name="Screen2" ColumnName="Screen2" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblReviews">
+            <EntityTypeMapping TypeName="RedSeaModel.tblReview">
+              <MappingFragment StoreEntitySet="tblReview">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="cDate" ColumnName="cDate" />
+                <ScalarProperty Name="FTE" ColumnName="FTE" />
+                <ScalarProperty Name="cType" ColumnName="cType" />
+                <ScalarProperty Name="Details" ColumnName="Details" />
+                <ScalarProperty Name="cUser" ColumnName="cUser" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblSkills">
+            <EntityTypeMapping TypeName="RedSeaModel.tblSkill">
+              <MappingFragment StoreEntitySet="tblSkill">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="SkillName" ColumnName="SkillName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblSystems">
+            <EntityTypeMapping TypeName="RedSeaModel.tblSystem">
+              <MappingFragment StoreEntitySet="tblSystem">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="SystemName" ColumnName="SystemName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblTeams">
+            <EntityTypeMapping TypeName="RedSeaModel.tblTeam">
+              <MappingFragment StoreEntitySet="tblTeam">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="TeamGroup" ColumnName="TeamGroup" />
+                <ScalarProperty Name="Team" ColumnName="Team" />
+                <ScalarProperty Name="Logo" ColumnName="Logo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblTeamGroups">
+            <EntityTypeMapping TypeName="RedSeaModel.tblTeamGroup">
+              <MappingFragment StoreEntitySet="tblTeamGroup">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="TeamGroup" ColumnName="TeamGroup" />
+                <ScalarProperty Name="Logo" ColumnName="Logo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vAllEmpoyees">
+            <EntityTypeMapping TypeName="RedSeaModel.vAllEmpoyee">
+              <MappingFragment StoreEntitySet="vAllEmpoyees">
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="DirectReport" ColumnName="DirectReport" />
+                <ScalarProperty Name="FingerPrint" ColumnName="FingerPrint" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Cisco" ColumnName="Cisco" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Designation" ColumnName="Designation" />
+                <ScalarProperty Name="Team" ColumnName="Team" />
+                <ScalarProperty Name="TeamGroup" ColumnName="TeamGroup" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
